@@ -3,7 +3,7 @@
     Software desenvolvido mediante desafio, com a proposta de criar um TODO list em Python e Flask, linguagem e
     framework até então desconhecido. Desafio aceito, foram 7 dias de estudo e aprendizagem sobre o universo
     Python, e posso dizer que me apaixonei pela simplicidade e grandeza de recursos que tem o Python e este pe-
-    queno e poderoso framework.
+    queno e poderoso framework. Faça um teste [aqui](http://danielgalleni.pythonanywhere.com/).
 
 # Dependências do projeto
     alembic==0.9.1
