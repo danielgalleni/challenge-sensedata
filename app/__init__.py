@@ -16,7 +16,7 @@ gerenciamento_login = LoginManager()
 def create_app(config_name):
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_object(app_config[config_name])
-    app.config.from_pyfile('/home/daniel/Documents/challenge-sensedata/instance/config.py')
+    app.config.from_pyfile("/home/daniel/Documents/challenge-sensedata/instance/config.py")
 
     Bootstrap(app)
     banco_dados.init_app(app)
