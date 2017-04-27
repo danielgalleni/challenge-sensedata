@@ -1,0 +1,28 @@
+# challenge-sensedata
+
+# Ignora todos os arquivos e sub-pastas em bin/
+bin/
+
+# Ignora todos os arquivos e sub-pastas em include/
+include/
+
+# Ignora todos os arquivos e sub-pastas em lib/
+lib/
+
+# Ignora o arquivo pip-selfcheck.json
+pip-selfcheck.json
+
+# Ignora todos os arquivos em .idea/
+.idea/
+
+# Ignora todos os arquivos em local
+ local
+
+# Ignora todos os arquivos em intance/
+instance/
+
+# ignora todos os arquivos em migrations/
+migrations/
+
+# Ignora todos os arquivos com a extensão *.pyc
+*.pyc

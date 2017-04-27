@@ -1,0 +1,274 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="ToDo List">
+        <meta name="keywords" content="TODO,List,Python,Flask,MicroFrameword">
+        <meta name="author" content="Daniel Galleni">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <link rel="shortcut icon" href="caminhodoarquivo/favicon.ico" />
+        <title>ToDo List</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/todo.css') }}">
+    </head>
+    <body>
+        <div class="jumbotron">
+            <div class="container">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+                        <section class="page-header">
+                            <div class="center-block">
+                                <h3>To Do List - Lista de tarefas</h3>
+                            </div>
+                        </section>
+
+                        <section class="app_todo_cadastro">
+                             <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Cadastre sua tarefa
+                                </div>
+                                 <div class="container">
+                                    <div class="clearfix"></div>
+                                    <!-- <div class="panel-body"> -->
+                                    <section name="formulario">
+
+                                        <form class="form-horizontal">
+                                          <br>
+                                          <div class="form-group">
+                                            <label for="inputTarefa" class="col-sm-2 control-label">Tarefa</label>
+                                            <div class="col-sm-10">
+                                              <input type="text" class="form-control" id="inputTarefa" placeholder="Tarefa">
+                                            </div>
+                                          </div>
+
+                                          <div class="form-group">
+                                            <label for="inputTarefaDetalhe" class="col-sm-2 control-label">Detalhe</label>
+                                            <div class="col-sm-10">
+                                              <textarea class="form-control" id="inputTarefaDetalhe" placeholder="Detalhe" rows="3"></textarea>
+                                            </div>
+                                            </div>
+
+                                          <div class="form-group">
+                                            <label for="inputTarefaCategoria" class="col-sm-2 control-label">Categoria</label>
+                                            <div class="col-sm-10">
+
+                                                <label class="radio-inline">
+                                                  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="optionAzul"><span class="label label-primary"> Azul </span>
+                                                </label>
+                                               <label class="radio-inline">
+                                                  <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="optionVerde"><span class="label label-success"> Verde </span>
+                                                </label>
+                                                <label class="radio-inline">
+                                                  <input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="optionAgua"><span class="label label-info"> Água </span>
+                                                </label>
+                                                <label class="radio-inline">
+                                                  <input type="radio" name="inlineRadioOptions" id="inlineRadio5" value="optionAmarela"><span class="label label-warning"> Amarela </span>
+                                                </label>
+
+                                                <label class="radio-inline">
+                                                  <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="optionAmarela"><span class="label label-danger"> Vermelha </span>
+                                                </label>
+                                            </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-2 col-sm-10">
+                                                <button type="submit" class="btn btn-default">Incluir</button>
+                                               </div>
+                                            </div>
+
+
+                                        </form>
+                                        </section>
+                                 </div>
+                             </div>
+                        </section>
+
+                        <br>
+
+                                    <ul class="list-group">
+                                        <!-- criar for python para carregar a lista -->
+                                        <sesseion class="todos">
+
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="heading1">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collaose1" aria-expanded="true" aria-controls="collaose1">
+            Tarefa 1
+        </a>
+      </h4>
+    </div>
+    <div id="collaose1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
+      <div class="panel-body">
+            <div class="input-group">
+                <input type="text" class="form-control" aria-label="...">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default">Alterar </button>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="#">Concluir</a></li>
+                        <li><a href="#">Abrir</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Excluir</a></li>
+                    </ul>
+                </div>
+            </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading" role="tab" id="heading2">
+      <h4 class="panel-title">
+        <a class="lista-todo collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="false" aria-controls="collapse2">
+            Tarefa 2
+        </a>
+      </h4>
+    </div>
+    <div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+      <div class="panel-body">
+            <div class="input-group">
+                <input type="text" class="form-control" aria-label="...">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default">Alterar </button>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="#">Concluir</a></li>
+                        <li><a href="#">Abrir</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Excluir</a></li>
+                    </ul>
+                </div>
+            </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-success">
+    <div class="panel-heading" role="tab" id="heading3">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="false" aria-controls="collapse3">
+            Tarefa 3
+        </a>
+      </h4>
+    </div>
+    <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
+      <div class="panel-body">
+            <div class="input-group">
+                <input type="text" class="form-control" aria-label="...">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default">Alterar </button>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="#">Concluir</a></li>
+                        <li><a href="#">Abrir</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Excluir</a></li>
+                    </ul>
+                </div>
+            </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-info">
+    <div class="panel-heading" role="tab" id="heading3">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="false" aria-controls="collapse3">
+            Tarefa 3
+        </a>
+      </h4>
+    </div>
+    <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
+      <div class="panel-body">
+            <div class="input-group">
+                <input type="text" class="form-control" aria-label="...">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default">Alterar </button>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="#">Concluir</a></li>
+                        <li><a href="#">Abrir</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Excluir</a></li>
+                    </ul>
+                </div>
+            </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-warning">
+    <div class="panel-heading" role="tab" id="heading3">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="false" aria-controls="collapse3">
+            Tarefa 3
+        </a>
+      </h4>
+    </div>
+    <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
+      <div class="panel-body">
+            <div class="input-group">
+                <input type="text" class="form-control" aria-label="...">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default">Alterar </button>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="#">Concluir</a></li>
+                        <li><a href="#">Abrir</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Excluir</a></li>
+                    </ul>
+                </div>
+            </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-danger">
+    <div class="panel-heading" role="tab" id="heading3">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="false" aria-controls="collapse3">
+            Tarefa 3
+        </a>
+      </h4>
+    </div>
+    <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
+      <div class="panel-body">
+            <div class="input-group">
+                <input type="text" class="form-control" aria-label="...">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default">Alterar </button>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="#">Concluir</a></li>
+                        <li><a href="#">Abrir</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Excluir</a></li>
+                    </ul>
+                </div>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+                                        </sesseion>
+                                    </ul>
+                                <!-- </div> -->
+                             </div>
+                        </section>
+
+                        <section class="panel-footer">
+                            <p>© Todos os direitos são reservados!</p>
+                            <p>Desenvolvido por <strong>@danielgalleni</strong></p>
+                        </section>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="{{ url_for('static', filename='assets/jquery/jquery-3.2.1.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/bootstrap/js/bootstrap.min.js') }}"></script>
+    </body>
+</html>
