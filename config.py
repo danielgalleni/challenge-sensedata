@@ -8,6 +8,7 @@ class Config(object):
     # seja producao ou desenvolvimento
     DEBUG = True
 
+
 class DevelopmentConfig(Config):
     """
     Configuracão de desenvolvimento

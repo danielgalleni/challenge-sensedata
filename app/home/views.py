@@ -8,7 +8,7 @@ def homepage():
     """
     Renderizando o template da pagina inicial no caminho /
     """
-    return render_template('home/index.html', title="Seja Bem Vindo - Lista de Tarefas")
+    return render_template('home/index.html', title="Seja Bem Vindo", title_painel="Organize o seu dia voce tambem")
 
 @home.route('/dashboard')
 @login_required
@@ -16,4 +16,4 @@ def dashboard():
     """
     Renderizando o template da pagina inicial no caminho /dashboard
     """
-    return render_template('home/dashboard.html', title="Cadastro - Lista de Tarefas")
+    return render_template('home/dashboard.html', title="Cadastro", title_painel="Cadastre sua tarefa")

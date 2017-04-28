@@ -22,15 +22,13 @@ def cadastro():
                         senha=formulario.senha)
 
         pessoa.persistir()
-
         flash("Cadastro realizado com sucesso!  Faca o login para comecar a usar o sistema.")
 
         # Redirecionando para papagina de login/autenticacao
         return redirect(url_for("autenticacao.entrar"))
 
-
     # Carregando a pagina de cadastro
-    return render_template("autenticacao/cadastro.html", formulario=formulario, title="Cadastro")
+    return render_template("autenticacao/cadastro.html", formulario=formulario, title="Cadastro", title_painel="Faca o seu cadastro")
 
 @autenticacao.route("/entrar", methods=["GET", "Post"])
 def entrar():
@@ -56,7 +54,7 @@ def entrar():
             flash("Nome de usuario ou senha invalidos.")
 
     # Carregando a pagina de login
-    return render_template("autenticacao/entrar.html", formulario=formulario, title="Login")
+    return render_template("autenticacao/entrar.html", formulario=formulario, title="Login", title_painel="Entre em sua conta")
 
 @autenticacao.route("/sair")
 @login_required

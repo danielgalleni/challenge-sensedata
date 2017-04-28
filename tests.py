@@ -184,6 +184,7 @@ class TestaCRUD(TesteBasico):
         pessoa = Pessoa.query.filter_by(nome_usuario="usuario_teste").first()
         pessoa.excluir()
         self._baseAssertEqual()
+        self.assertEqual(user, [])
 
 
 

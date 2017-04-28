@@ -13,12 +13,9 @@ class FormularioCadastro(FlaskForm):
     email = StringField('E-mail', validators=[DataRequired(), Email()])
     nome_usuario = StringField('Nome de usuario', validators=[DataRequired()])
     nome = StringField('Nome completo', validators=[DataRequired()])
-    senha = PasswordField('Senha', validators=[
-                                        DataRequired(),
-                                        EqualTo('confirma_senha')
-                                        ])
+    senha = PasswordField('Senha', validators=[DataRequired(), EqualTo('confirma_senha')])
     confirma_senha = PasswordField('Confirme a senha')
-    submit = SubmitField('Registrar')
+    submit = SubmitField('Cadastrar')
 
     def validar_email(self, field):
         if Pessoa.query.filter_by(email=field.data).first():

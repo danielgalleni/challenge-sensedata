@@ -1,27 +1,20 @@
-<!DOCTYPE HTML>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="description" content="ToDo List">
-        <meta name="keywords" content="TODO,List,Python,Flask,MicroFrameword">
-        <meta name="author" content="Daniel Galleni">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Erro 404 | Lista de Tarefas</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='assets/bootstrap/css/bootstrap.min.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/404.css') }}">
-    </head>
-    <body>
-        <div class="wrapper row2">
-            <div id="container" class="clear">
-                <section id="fof" class="clear">
-                    <div class="hgroup clear">
-                        <h1>404</h1>
-                        <h2>Erro!<span>Página não encontrada</span></h2>
-                    </div>
-                    <p>Por alguma razão a página que você solicitou não pôde ser encontrada em nosso servidor.</p>
-                    <p><a href="javascript:history.go(-1)">&laquo; Voltar</a> / <a href="{{ url_for('home.homepage') }}">Ir para página principal &raquo;</a></p>
-                </section>
-            </div>
+{% extends "base.html" %}
+{% block title %}
+{% endblock %}
+{% block body %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/404.css') }}">
+    <div class="wrapper row2">
+      <div id="container" class="clear">
+        <section id="fof" class="clear">
+        <div class="hgroup clear">
+          <h1>404</h1>
+          <h2>Erro!<span>Página não encontrada</span></h2>
         </div>
-    </body>
-</html>
+      </section>
+      <div class="center">
+        <p>Por alguma razão a página que você solicitou não pôde ser encontrada em nosso servidor.</p>
+        <p><a href="javascript:history.go(-1)">&laquo; Voltar</a> / <a href="{{ url_for('home.homepage') }}">Ir para página principal &raquo;</a></p>
+      </div>
+    </div>
+  </div>
+{% endblock %}

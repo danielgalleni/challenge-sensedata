@@ -26,6 +26,7 @@ def create_app(config_name):
         app.config.from_object(app_config[config_name])
         app.config.from_pyfile("/home/daniel/Documents/challenge-sensedata/instance/config.py")
 
+
     Bootstrap(app)
     banco_dados.init_app(app)
     gerenciamento_login.init_app(app)
@@ -43,14 +44,14 @@ def create_app(config_name):
 
     @app.errorhandler(403)
     def forbidden(erro):
-        return render_template("erros/403.html", title="Acesso proibido"), 403
+        return render_template("erros/403.html", title="Erro 403", title_painel="Erro! Acesso proibido"), 403
 
     @app.errorhandler(404)
     def page_not_found(erro):
-        return render_template('erros/404.html', title='Pagina nao encontrada'), 404
+        return render_template('erros/404.html', title='Erro 404', title_painel="Erro! Pagina nao encontrada"), 404
 
     @app.errorhandler(500)
     def internal_server_error(erro):
-        return render_template('erros/500.html', title='Erro no servidor'), 500
+        return render_template('erros/500.html', title='Erro 500', title_painel="Erro! Algo deu errado :/"), 500
 
     return app
