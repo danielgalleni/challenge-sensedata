@@ -26,3 +26,6 @@ migrations/
 
 # Ignora todos os arquivos com a extensão *.pyc
 *.pyc
+
+# Ignora todos os arquivos em local/
+local/

@@ -8,7 +8,7 @@ from .. import banco_dados
 from ..models import Pessoa
 
 
-@autenticacao.route("/cadastro", methods=["GET", "POST"])
+@autenticacao.route('/cadastro', methods=['GET', 'POST'])
 def cadastro():
     """
     Incluir uma pessoa atraves do formulario de cadastro 
@@ -18,19 +18,20 @@ def cadastro():
     if formulario.validate_on_submit():
         pessoa = Pessoa(email=formulario.email.data,
                         nome_usuario=formulario.nome_usuario.data,
-                        nome=formulario.nome.data,
-                        senha=formulario.senha)
+                        nome_completo=formulario.nome_completo.data,
+                        apelido=formulario.apelido.data,
+                        senha=formulario.senha.data)
 
         pessoa.persistir()
-        flash("Cadastro realizado com sucesso!  Faca o login para comecar a usar o sistema.")
 
         # Redirecionando para papagina de login/autenticacao
-        return redirect(url_for("autenticacao.entrar"))
+        return redirect(url_for('autenticacao.entrar'))
 
     # Carregando a pagina de cadastro
-    return render_template("autenticacao/cadastro.html", formulario=formulario, title="Cadastro", title_painel="Faca o seu cadastro")
+    return render_template('autenticacao/cadastro.html', form=formulario, title='Cadastro', title_painel='Faca o seu cadastro')
 
-@autenticacao.route("/entrar", methods=["GET", "Post"])
+
+@autenticacao.route('/entrar', methods=['GET', 'POST'])
 def entrar():
     """
     Entrar no sistema atraves do formulario de login 
@@ -47,16 +48,17 @@ def entrar():
             login_user(pessoa)
 
             # Redirecionando para o dashboard
-            return redirect(url_for("home.dashboard"))
+            return redirect(url_for('home.dashboard'))
 
         # Para usuario ou senha invalidos
         else:
-            flash("Nome de usuario ou senha invalidos.")
+            flash('Nome de usuario ou senha invalidos.')
 
     # Carregando a pagina de login
-    return render_template("autenticacao/entrar.html", formulario=formulario, title="Login", title_painel="Entre em sua conta")
+    return render_template('autenticacao/entrar.html', form=formulario, title='Login', title_painel='Entre em sua conta')
 
-@autenticacao.route("/sair")
+
+@autenticacao.route('/sair')
 @login_required
 def sair():
     """
@@ -64,7 +66,7 @@ def sair():
     """
 
     logout_user()
-    flash("Voce saiu do sistema.")
+    flash('Voce saiu do sistema.')
 
     # Redirecionando para a pagina de login
-    return redirect(url_for("autenticacao.entrar"))
+    return redirect(url_for('autenticacao.entrar'))

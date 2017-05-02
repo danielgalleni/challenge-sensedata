@@ -53,7 +53,7 @@ do, evitando assim possíveis manutenções em seu computador.
 
 No próximo passo, precisamos apenas instalar as dependências ou os pacotes requeridos do projeto. Digite o comando:
 
-    $ pip install -r requeriments.txt
+    $ pip install -r requirements.txt
 
 # Banco de dados
 Executar código para criar o usuário de produção e teste:

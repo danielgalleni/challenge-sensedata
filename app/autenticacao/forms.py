@@ -12,19 +12,19 @@ class FormularioCadastro(FlaskForm):
     """
     email = StringField('E-mail', validators=[DataRequired(), Email()])
     nome_usuario = StringField('Nome de usuario', validators=[DataRequired()])
-    nome = StringField('Nome completo', validators=[DataRequired()])
-    senha = PasswordField('Senha', validators=[DataRequired(), EqualTo('confirma_senha')])
-    confirma_senha = PasswordField('Confirme a senha')
+    nome_completo = StringField('Nome completo', validators=[DataRequired()])
+    apelido = StringField('Apelido', validators=[DataRequired()])
+    senha = PasswordField('Senha', validators=[DataRequired(),EqualTo('confirme_senha')])
+    confirme_senha = PasswordField('Confirme a senha')
     submit = SubmitField('Cadastrar')
 
-    def validar_email(self, field):
+    def validate_email(self, field):
         if Pessoa.query.filter_by(email=field.data).first():
             raise ValidationError('O e-mail informado pertence a outra conta.')
 
-    def validar_nome_usuario(self, field):
+    def validate_username(self, field):
         if Pessoa.query.filter_by(nome_usuario=field.data).first():
             raise ValidationError('O nome de usuario informado ja esta em uso.')
-
 
 class FormularioLogin(FlaskForm):
     """

@@ -11,6 +11,7 @@ def homepage():
     return render_template('home/index.html', title="Seja Bem Vindo", title_painel="Organize o seu dia voce tambem")
 
 @home.route('/dashboard')
+#@login_required
 @login_required
 def dashboard():
     """

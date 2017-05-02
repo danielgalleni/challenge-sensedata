@@ -1,4 +1,3 @@
-# coding=utf-8
 from flask import flash
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -17,7 +16,7 @@ class Pessoa(UserMixin, banco_dados.Model):
     id = banco_dados.Column(banco_dados.Integer, primary_key=True)
     email = banco_dados.Column(banco_dados.String(60), index=True, unique=True)
     nome_usuario = banco_dados.Column(banco_dados.String(60), index=True, unique=True)
-    nome = banco_dados.Column(banco_dados.String(120), index=True)
+    nome_completo = banco_dados.Column(banco_dados.String(120), index=True)
     apelido = banco_dados.Column(banco_dados.String(60), index=True)
     senha_hash = banco_dados.Column(banco_dados.String(128))
 
@@ -26,7 +25,7 @@ class Pessoa(UserMixin, banco_dados.Model):
         """
         Protege a senha
         """
-        raise AttributeError('Não é permitido saber a senha')
+        raise AttributeError('Nao e permitido saber a senha')
 
     @senha.setter
     def senha(self, senha):
@@ -37,7 +36,7 @@ class Pessoa(UserMixin, banco_dados.Model):
 
     def verifica_senha(self, senha):
         """
-        Verifica se a senha informada está correta
+        Verifica se a senha informada esta correta
         """
         return check_password_hash(self.senha_hash, senha)
 
@@ -49,8 +48,9 @@ class Pessoa(UserMixin, banco_dados.Model):
         try:
             banco_dados.session.add(self)
             banco_dados.session.commit()
+            flash('Cadastro realizado com sucesso!  Faca o login para comecar a usar o sistema.')
         except Exception:
-            flash("Nao foi possivel salvar o cadastro.")
+            flash("Nao foi possivel realizar o seu cadastro. Tente novamente!")
 
     def atualizar(self):
         # Atualizando cadastro no banco de dados
@@ -69,7 +69,7 @@ class Pessoa(UserMixin, banco_dados.Model):
             flash("Nao foi possivel excluir o cadastro.")
 
 
-# Carregar usuário
+# Carregar usuario
 @gerenciamento_login.user_loader
 def carregar_usuario(id_usuario):
     return Pessoa.query.get(int(id_usuario))

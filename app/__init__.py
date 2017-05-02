@@ -1,10 +1,11 @@
+import os
+
+
 from flask import abort, Flask, render_template
 from flask_bootstrap import Bootstrap
 from flask_login import LoginManager
-from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
-import os
-
+from flask_migrate import Migrate
 
 from config import app_config
 
