@@ -3,39 +3,42 @@
 {% block title %}Cadastro{% endblock %}
 {% block body %}
   <section name="formulario">
-    <form class="form-horizontal">
+
+    <form class="form-horizontal" action="" method="post" role="form">
+      {{ form.hidden_tag() }}
+      {{ wtf.form_errors(form, hiddens="only") }}
       <br>
       <div class="form-group">
-        <label for="inputTarefa" class="col-sm-2 control-label">Tarefa</label>
+        <label for="tarefa" class="col-sm-2 control-label">Tarefa</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="inputTarefa" placeholder="Tarefa">
+          <input type="text" class="form-control" id="tarefa" name="tarefa" required="" placeholder="Tarefa">
         </div>
       </div>
 
       <div class="form-group">
-          <label for="inputTarefaDetalhe" class="col-sm-2 control-label">Detalhe</label>
+          <label for="detalhe" class="col-sm-2 control-label">Detalhe</label>
         <div class="col-sm-10">
-          <textarea class="form-control" id="inputTarefaDetalhe" placeholder="Detalhe" rows="3"></textarea>
+          <textarea class="form-control" id="detalhe" name="detalhe" required="" placeholder="Detalhe" rows="3"></textarea>
         </div>
       </div>
 
       <div class="form-group">
-            <label for="inputTarefaCategoria" class="col-sm-2 control-label">Categoria</label>
+            <label for="categoria" class="col-sm-2 control-label">Categoria</label>
         <div class="col-sm-10">
          <label class="radio-inline">
-         <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="optionAzul"><span class="label label-primary"> Azul </span>
+         <input type="radio" name="categoria" id="categoria-0" value="1"><span class="label label-primary"> Azul </span>
          </label>
          <label class="radio-inline">
-         <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="optionVerde"><span class="label label-success"> Verde </span>
+         <input type="radio" name="categoria" id="categoria-1" value="2"><span class="label label-success"> Verde </span>
          </label>
          <label class="radio-inline">
-         <input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="optionAgua"><span class="label label-info"> Água </span>
+         <input type="radio" name="categoria" id="categoria-2" value="3"><span class="label label-info"> Água </span>
          </label>
          <label class="radio-inline">
-         <input type="radio" name="inlineRadioOptions" id="inlineRadio5" value="optionAmarela"><span class="label label-warning"> Amarela </span>
+         <input type="radio" name="categoria" id="categoria-3" value="4"><span class="label label-warning"> Amarela </span>
          </label>
          <label class="radio-inline">
-         <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="optionAmarela"><span class="label label-danger"> Vermelha </span>
+         <input type="radio" name="categoria" id="categoria-4" value="5"><span class="label label-danger"> Vermelha </span>
          </label>
         </div>
       </div>
